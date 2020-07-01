@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;ENGINE_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui;$(SolutionDir)game_engine\dependencies\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -106,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;ENGINE_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui;$(SolutionDir)game_engine\dependencies\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;ENGINE_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui;$(SolutionDir)game_engine\dependencies\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;ENGINE_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)game_engine\dependencies\SFML\include;$(SolutionDir)game_engine\dependencies\imgui;$(SolutionDir)game_engine\dependencies\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -161,6 +161,7 @@
     <ClCompile Include="dependencies\imgui\imgui_draw.cpp" />
     <ClCompile Include="dependencies\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\engine\application.cpp" />
+    <ClCompile Include="src\engine\log.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -179,10 +180,98 @@
     <ClInclude Include="dependencies\imgui\imstb_rectpack.h" />
     <ClInclude Include="dependencies\imgui\imstb_textedit.h" />
     <ClInclude Include="dependencies\imgui\imstb_truetype.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\async.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\async_logger-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\async_logger.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\cfg\argv.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\cfg\env.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\cfg\helpers.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\cfg\log_levels.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\common-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\common.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\backtracer.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\circular_q.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\console_globals.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\file_helper.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\log_msg.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\null_mutex.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\os-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\os.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\registry-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\registry.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\tcp_client.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\thread_pool.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\details\windows_include.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\posix.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\fmt.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fmt\ostr.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\formatter.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\fwd.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\logger-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\logger.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\pattern_formatter.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\spdlog-inl.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\spdlog.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\tweakme.h" />
+    <ClInclude Include="dependencies\spdlog\include\spdlog\version.h" />
     <ClInclude Include="src\engine.h" />
     <ClInclude Include="src\engine\application.h" />
     <ClInclude Include="src\engine\core.h" />
     <ClInclude Include="src\engine\entry_point.h" />
+    <ClInclude Include="src\engine\log.h" />
     <ClInclude Include="src\Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
