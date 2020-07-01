@@ -1,13 +1,22 @@
+
 #include "imgui.h"
 #include "imgui-SFML.h"
 
+#include "SFML/OpenGL.hpp"
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(640, 480), "");
+    sf::ContextSettings settings;
+    settings.depthBits = 24;
+    settings.stencilBits = 8;
+    settings.antialiasingLevel = 4;
+    settings.majorVersion = 3;
+    settings.minorVersion = 0;
+
+    sf::RenderWindow window(sf::VideoMode(800, 600), "", sf::Style::Default, settings);
     window.setVerticalSyncEnabled(true);
     ImGui::SFML::Init(window);
 
@@ -21,8 +30,10 @@ int main()
 
     window.setTitle(windowTitle);
     window.resetGLStates(); // call it if you only draw ImGui. Otherwise not needed.
+    
     sf::Clock deltaClock;
-    while (window.isOpen()) {
+    while (window.isOpen())
+    {
         sf::Event event;
         while (window.pollEvent(event)) {
             ImGui::SFML::ProcessEvent(event);
@@ -32,10 +43,11 @@ int main()
             }
         }
 
+        window.clear(bgColor); // fill background with color
+
         ImGui::SFML::Update(window, deltaClock.restart());
 
         ImGui::Begin("Sample window"); // begin window
-
                                        // Background color edit
         if (ImGui::ColorEdit3("Background color", color)) {
             // this code gets called if color value changes, so
@@ -56,7 +68,6 @@ int main()
         }
         ImGui::End(); // end window
 
-        window.clear(bgColor); // fill background with color
         ImGui::SFML::Render(window);
         window.display();
     }
