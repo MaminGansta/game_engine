@@ -1,9 +1,12 @@
 #pragma once
 
-#include "core.h"
+#include <string>
+
+#include "../core.h"
 
 #include <SFML/Window/Event.hpp>
 using sf::Event;
+
 
 namespace Engine
 {

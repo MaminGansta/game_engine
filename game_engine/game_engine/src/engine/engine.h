@@ -1,16 +1,18 @@
 #pragma once
 
 
-#include "engine/application.h"
-#include "engine/log.h"
-#include "engine/entry_point.h"
-#include "engine/layer.h"
-#include "engine/layers_array.h"
+// engine
+#include "application/application.h"
+#include "log/log.h"
+#include "entry_point.h"
+#include "layers/layer.h"
+#include "layers/layer_array.h"
 
 
 // imgui
 #include "imgui.h"
 #include "imgui-SFML.h"
+
 
 // sfml
 #include "SFML/OpenGL.hpp"

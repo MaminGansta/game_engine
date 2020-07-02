@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core.h"
+#include "../core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
@@ -12,7 +12,7 @@ namespace Engine
 		static std::shared_ptr<spdlog::logger> core_logger;
 
 		Log();
-		
+
 		~Log();
 
 		static void init();

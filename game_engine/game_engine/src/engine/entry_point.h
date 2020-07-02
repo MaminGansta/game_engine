@@ -8,16 +8,12 @@ int main(int argc, char** argv)
 {
 	Engine::Log::init();
 
-	LOG_INFO("INFO VAR = {0} {0:X}", 15);
-	LOG_TRACE("TRACE");
-	LOG_ERROR("ERROR");
-	LOG_WARN("WARN");
+	Engine::Application* app = Engine::create_application();
 
-	LOG_CORE_WARN("WARN");
+	//app->main_window = app->create_window();
 
-
-	auto app = Engine::create_application();
 	app->run();
+
 	delete app;
 	return 0;
 }
