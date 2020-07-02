@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 {
 	Engine::Log::init();
 
-	LOG_INFO("INFO VAR = {0} {0:X}", 17);
+	LOG_INFO("INFO VAR = {0} {0:X}", 15);
 	LOG_TRACE("TRACE");
 	LOG_ERROR("ERROR");
 	LOG_WARN("WARN");

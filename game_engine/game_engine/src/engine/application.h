@@ -9,7 +9,7 @@ namespace Engine
 		Application();
 		virtual ~Application();
 
-		void run();
+		virtual void run();
 	};
 
 	Application* create_application();
