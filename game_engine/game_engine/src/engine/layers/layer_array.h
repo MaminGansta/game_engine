@@ -1,14 +1,11 @@
 #pragma once
 
-#include <vector>
-
-#include "../core.h"
 #include "layer.h"
 
 
 namespace Engine
 {
-	struct ENGINE_API LayerArray
+	struct LayerArray
 	{
 		std::vector<Layer*> layers;
 

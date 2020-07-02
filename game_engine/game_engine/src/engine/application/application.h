@@ -1,13 +1,10 @@
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
-
-#include "../core.h"
 #include "../layers/layer_array.h"
 
 namespace Engine
 {
-	struct ENGINE_API Application
+	struct Application
 	{
 		LayerArray layer_array;
 		sf::RenderWindow* main_window;

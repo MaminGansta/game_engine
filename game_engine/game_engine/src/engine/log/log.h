@@ -1,12 +1,8 @@
 #pragma once
 
-#include "../core.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
-
 namespace Engine
 {
-	struct ENGINE_API Log
+	struct Log
 	{
 		static std::shared_ptr<spdlog::logger> client_logger;
 		static std::shared_ptr<spdlog::logger> core_logger;

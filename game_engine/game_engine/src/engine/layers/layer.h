@@ -1,16 +1,12 @@
 #pragma once
 
-#include <string>
-
-#include "../core.h"
-
 #include <SFML/Window/Event.hpp>
 using sf::Event;
 
 
 namespace Engine
 {
-	struct ENGINE_API Layer
+	struct Layer
 	{
 		std::string name;
 

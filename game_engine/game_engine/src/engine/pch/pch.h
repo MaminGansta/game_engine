@@ -4,6 +4,11 @@
 #include <vector>
 #include <algorithm>
 
+// spdlog
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
+
+
 // imgui
 #include "imgui.h"
 #include "imgui-SFML.h"

@@ -1,12 +1,12 @@
 #pragma once
 
+#include <string>
+#include <vector>
+#include <algorithm>
 
-// engine
-#include "application/application.h"
-#include "log/log.h"
-#include "entry_point.h"
-#include "layers/layer.h"
-#include "layers/layer_array.h"
+// spdlog
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 
 // imgui
@@ -19,4 +19,12 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
+
+
+// engine
+#include "application/application.h"
+#include "log/log.h"
+#include "entry_point.h"
+#include "layers/layer.h"
+#include "layers/layer_array.h"
 
