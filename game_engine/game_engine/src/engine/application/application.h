@@ -18,6 +18,7 @@ namespace Engine
 		void swap_layers(int id_1, int id_2);
 
 		virtual sf::RenderWindow* create_window();
+		virtual void window_onEvent(Event& event);
 
 		void run();
 

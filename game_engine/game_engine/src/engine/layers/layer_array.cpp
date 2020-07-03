@@ -7,14 +7,13 @@ namespace Engine
 {
 	void LayerArray::push_back(Layer* layer)
 	{
-		layers.push_back(layer);
+		layers.emplace_back(layer);
 		layer->OnAttach();
 	}
 
 	void LayerArray::remove(int id)
 	{
 		layers[id]->OnDetach();
-		delete layers[id];
 		layers.erase(layers.begin() + id);
 	}
 
@@ -29,18 +28,10 @@ namespace Engine
 		std::swap(layers[id_1], layers[id_2]);
 	}
 
-	LayerArray::~LayerArray()
-	{
-		for (Layer* layer : layers)
-		{
-			layer->OnDetach();
-			delete layer;
-		}
-	}
-
-	Layer* LayerArray::operator [] (int id)
+	std::unique_ptr<Layer>& LayerArray::operator [] (int id)
 	{
 		return layers[id];
 	}
 
+	LayerArray::~LayerArray() {}
 }

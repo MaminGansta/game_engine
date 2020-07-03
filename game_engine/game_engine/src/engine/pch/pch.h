@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 // spdlog
 #include "spdlog/spdlog.h"

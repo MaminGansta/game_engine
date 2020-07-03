@@ -33,7 +33,7 @@ namespace Engine
 	}
 	
 
-    // =================== Create window ====================
+    // =================== Window ====================
     sf::RenderWindow* Application::create_window()
     {
         sf::ContextSettings settings;
@@ -46,32 +46,36 @@ namespace Engine
         return new sf::RenderWindow(sf::VideoMode(800, 600), "Widnow", sf::Style::Default, settings);
     }
 
+    void Application::window_onEvent(Event& event)
+    {
+        if (event.type == sf::Event::Closed)
+            main_window->close();
+    }
+
+
 
     // ======================= Run ========================
 	void Application::run()
 	{
         while (main_window->isOpen())
         {
-            // Send events to layers
+            // Send events
             Event event;
             while (main_window->pollEvent(event))
             {
-                for (Layer* layer : layer_array.layers)
+                for (auto& layer : layer_array.layers)
                     layer->OnEvent(event);
-
-                if (event.type == sf::Event::Closed)
-                    main_window->close();
+                
+                window_onEvent(event);
             }
             
             // Update layers
-            for (Layer* layer : layer_array.layers)
+            for (auto& layer : layer_array.layers)
                 layer->OnUpdate();
 
             // render window
             main_window->display();
         }
-
-
-
 	}
+
 }
